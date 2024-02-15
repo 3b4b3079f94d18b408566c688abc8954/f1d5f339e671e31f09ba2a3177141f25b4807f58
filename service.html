@@ -107,7 +107,36 @@
     </header>
     <!-- end header section -->
   </div>
+<button id="sticky-button" class="sticky-button">Contact for booking</button>
 
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <span class="close">&times;</span>
+        <h2>Contact Information</h2>
+        <p>Mail:- mail@antonynilyam.live</p>
+        <p>Mob:- +91 9744453830</p>
+      </div>
+    </div>
+
+    <script>
+      // Get references to the button and popup elements
+      var button = document.getElementById("sticky-button");
+      var popup = document.getElementById("popup");
+      var isOpen = false;
+
+      // Toggle the popup display when the button is clicked
+      button.addEventListener("click", function() {
+        // Toggle the isOpen variable
+        isOpen = !isOpen;
+        
+        // Show or hide the popup based on the isOpen variable
+        if (isOpen) {
+          popup.style.display = "block";
+        } else {
+          popup.style.display = "none";
+        }
+      });
+    </script>
   <!-- service section -->
 
   <section class="service_section layout_padding">
