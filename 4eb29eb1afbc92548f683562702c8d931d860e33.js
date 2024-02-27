@@ -1,0 +1,11 @@
+const scriptURL = 'https://script.google.com/macros/s/AKfycbz0uKMqxo2KpcUp7Y9dX6sGQiuiYrfdzyMaYs6FoZ9hQ0sctGHQCorGtGZcjxyukv1yWA/exec'
+
+const form = document.forms['contact-form']
+
+form.addEventListener('submit', e => {
+  e.preventDefault()
+  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+  .then(response => alert("Thank you! your form is submitted successfully." ))
+  .then(() => { window.location.reload(); })
+  .catch(error => console.error('Error!', error.message))
+})
