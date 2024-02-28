@@ -120,32 +120,30 @@
           </div>
         </div>
       </div>
-      <div class="row">
+     <div class="row">
         <div class="col-lg-4 col-md-5 offset-md-1">
           <div class="form_container">
-              <form method="post" action="" name="contact-form">
+            <form >
               <div>
                 <input type="text" name="name" placeholder="Your Name" />
               </div>
               <div>
-                <input type="email" name="email" placeholder="Email" />
-              </div>
-	              <div>
-                <input type="text" name="phonenumber" placeholder="Phone Number" />
+                <input type="email" name ="email" placeholder="Email" />
               </div>
               <div>
-                <input type="text" class="message-box" name="message" placeholder="Message" />
+                <input type="text" name ="phone" placeholder="Phone Number" />
+              </div>
+              <div>
+                <input type="text" name="message" class="message-box" placeholder="Message" />
               </div>
               <div class="btn_box">
-                <button  type="submit" value="Submit" id="submit">
+                <button onclick="submitForm()">
                   SEND
                 </button>
               </div>
             </form>
           </div>
         </div>
-	<script src="form.js"></script>
-          </div>
       <div id="responseMessage"></div>
 
 <script>
