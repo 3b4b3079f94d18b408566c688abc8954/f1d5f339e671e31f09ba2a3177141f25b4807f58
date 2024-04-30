@@ -125,7 +125,7 @@
      <div class="row">
         <div class="col-lg-4 col-md-5 offset-md-1">
           <div class="form_container">
-            <form action="https://script.google.com/macros/s/AKfycbxwGTDv6Zo8ySJgyp7MHqo5meTR-HpGC5qKKcFkt1ath32-gWN4_aHKxABcBFgSAkKmXA/exec" method="post" name="contact-form" >
+            <form action="https://script.google.com/macros/s/AKfycbxwGTDv6Zo8ySJgyp7MHqo5meTR-HpGC5qKKcFkt1ath32-gWN4_aHKxABcBFgSAkKmXA/exec" method="post" id="enquiryForm" >
               <div>
                 <input type="text" name="name" placeholder="Your Name" />
               </div>
@@ -149,45 +149,26 @@
       <div id="responseMessage"></div>
 <!-- <script src="form.js"></script> -->
 <script>
-function submitForm() {
-    var formElements = document.getElementsByName("name");
-    var name = formElements[0].value;
+        document.getElementById('enquiryForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
 
-    formElements = document.getElementsByName("email");
-    var email = formElements[0].value;
+            var formData = new FormData(this);
 
-    formElements = document.getElementsByName("phone");
-    var phone = formElements[0].value;
-
-    formElements = document.getElementsByName("message");
-    var message = formElements[0].value;
-
-    var xhr = new XMLHttpRequest();
-    var formData = new FormData();
-
-    formData.append("name", name);
-    formData.append("email", email);
-    formData.append("phone", phone);
-    formData.append("message", message);
-
-    xhr.open("POST", "https://admin.antonynilayam.live/mail.php", true);
-
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4) {
-            if (xhr.status == 200) {
-                if (xhr.responseText === "Success") {
-                    alert("Thank you for your submission!");
-                } else {
-                    alert("Error submitting the form.");
-                }
-            } else {
-                alert("Thank you for your submission!");
-            }
-        }
-    };
-
-    xhr.send(formData);
-}
+            fetch(this.getAttribute('action'), {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data); // Log the response from the server
+                // Optionally, you can display a success message or redirect the user
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Optionally, you can display an error message to the user
+            });
+        });
+    </script>
 </script>
 
         <div class="col-lg-7 col-md-6 px-0">
