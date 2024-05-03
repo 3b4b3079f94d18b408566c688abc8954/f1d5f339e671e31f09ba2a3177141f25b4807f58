@@ -372,18 +372,16 @@ form.addEventListener('submit', e => {
   })
   .then(response => {
     if (response.ok) {
-      // Add a delay before showing the success message
-      setTimeout(() => {
-        Swal.fire({
-          icon: 'success',
-          title: 'Success!',
-          text: 'Thank you! Your form is submitted successfully.',
-          showConfirmButton: false,
-          timer: 2000 // Auto close after 2 seconds
-        }).then(() => {
-          window.location.reload();
-        });
-      }, 1000); // Delay for 1 second (1000 milliseconds)
+      // Show success message immediately after successful submission
+      Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: 'Thank you! Your form is submitted successfully.',
+        showConfirmButton: false,
+        timer: 2000 // Auto close after 2 seconds
+      }).then(() => {
+        window.location.reload();
+      });
     } else {
       throw new Error('Network response was not ok.');
     }
