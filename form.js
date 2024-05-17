@@ -4,24 +4,16 @@ const form = document.forms['contact-form'];
 
 form.addEventListener('submit', e => {
   e.preventDefault();
-  
-  // Check if any field is empty
-  let formIsValid = true;
-  form.querySelectorAll('input').forEach(input => {
-    if (!input.value.trim()) {
-      formIsValid = false;
+
+  // Show loading message
+  Swal.fire({
+    title: 'Please wait...',
+    html: 'Submitting your form',
+    allowOutsideClick: false,
+    onBeforeOpen: () => {
+      Swal.showLoading();
     }
   });
-
-  if (!formIsValid) {
-    // Show alert message if any field is empty
-    Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'Please fill out all fields!',
-    });
-    return;
-  }
 
   fetch(scriptURL, { 
     method: 'POST', 
@@ -50,4 +42,3 @@ form.addEventListener('submit', e => {
       text: 'Something went wrong!',
     });
   });
-});
