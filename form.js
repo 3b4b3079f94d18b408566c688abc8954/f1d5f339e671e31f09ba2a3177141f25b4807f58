@@ -1,4 +1,5 @@
-const scriptURL = 'https://script.google.com/macros/s/AKfycbwzIurmEONXki2DFu2s1cDG7mAbYUcwGFBwsknX2yLxA9rZZuDtVCy2cOIc9hpVMdPO/exec';
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwzIurmEONXki2DFu2s1cDG7mAbYUcwGFBwsknX2yLxA9rZZuDtVCy2cOIc9hpVMdPO/exec';
 
 const form = document.forms['contact-form'];
 
@@ -42,3 +43,4 @@ form.addEventListener('submit', e => {
       text: 'Something went wrong!',
     });
   });
+                      </script>
